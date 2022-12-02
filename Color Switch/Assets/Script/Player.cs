@@ -28,18 +28,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag != currentColor)
-        {
-            // pass or destory
-            Debug.Log("GAME OVER");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
         if (col.tag == "colorChange")
         {
             setRandomColor();
             Destroy(col.gameObject);
             return;
+        }
+        if (col.tag != currentColor)
+        {
+            // pass or destory
+            Debug.Log("GAME OVER");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }
